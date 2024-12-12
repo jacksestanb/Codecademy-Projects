@@ -1,34 +1,34 @@
-const getUserChoice = (userInput) => {
-  userInput = userInput.toLowerCase();
+const getUserChoice = (userInput) => { // sets a function in arrow syntax
+  userInput = userInput.toLowerCase(); // sets userInput .toLowerCase() - method
   if (userInput === "rock" ||
     userInput === "paper" ||
-    userInput === "scissors" || 
+    userInput === "scissors" ||  // If or statements for rock, paper, scissors. || = OR . If statement 
     userInput === "bomb") {
-    return userInput;
+    return userInput;             //returns userInput as the output for the function getUserChoice
   } else {
-    return console.log("An Error Has Occured!")
+    return console.log("An Error Has Occured!") // else statement...
   }
 };
 
-const getComputerChoice = () => {
-  const randomNumber = Math.floor(Math.random() * 3);
-  switch (randomNumber) {
+const getComputerChoice = () => { // new function using same arrow syntax
+  const randomNumber = Math.floor(Math.random() * 3); // using the namespace object Math and its built in method .floor() and .random() to pick a numder between 1 and 3
+  switch (randomNumber) {        
     case 0:
       return "rock";
-    case 1:
+    case 1:                    //switch being used as options for the outcomes of randomNumber using case syntax followed by return under 
       return "paper";
     case 2:
       return "scissors";
   }
 };
 
-const determineWinner = (userChoice, computerChoice) => {
-  if (userChoice === computerChoice) {
+const determineWinner = (userChoice, computerChoice) => {                  // new function to determine the winner with the 2 parameters userChoice & computerChoice (also arrow synstax) 
+  if (userChoice === computerChoice) { // if statements to compare parameters
     return ("We have a draw!");
     } else if ((userChoice === "rock" && computerChoice === "scissors") || (userChoice === "paper" && computerChoice === "scissors") || (userChoice === "scissors" && computerChoice === "rock")) {
     return "Congrats, you win!" }
     else if (userChoice === "bomb"){
-      return "YOU ARE THE WINNER!"
+      return "YOU ARE THE WINNER!"                 // else if statements for easter egg notice, return and no brackets 
     }
     else {
       return "You lose!"
@@ -39,8 +39,8 @@ const determineWinner = (userChoice, computerChoice) => {
 const playGame = () => {
   let userChoice = getUserChoice('bomb');
   let computerChoice = getComputerChoice();
-  console.log(`You have selected ${userChoice}! The AI has selected ${computerChoice}!`);
-  console.log(determineWinner(userChoice, computerChoice));
+  console.log(`You have selected ${userChoice}! The AI has selected ${computerChoice}!`);  // function to print the outcome of the code to the console setting varibales in a local scope to deploy using interpollation.
+  console.log(determineWinner(userChoice, computerChoice));  // parameters set in previous function 
 } 
 
 playGame()
